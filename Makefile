@@ -7,7 +7,7 @@ dev:
 	go build -o ./build/dev/${BINARY_NAME} -ldflags="-X main.Version=${VERSION}-dev"  ./cmd/main.go
 
 docker:
-	go mod tidy
+	GOPROXY=https://goproxy.cn/ go mod tidy
 	go build -o ${BINARY_NAME} -ldflags="-X main.Version=${VERSION}" ./cmd/main.go
 
 release:
